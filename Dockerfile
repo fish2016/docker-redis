@@ -37,7 +37,7 @@ ADD etc/ /etc/
 USER root
 
 # Mountable directories
-VOLUME ["/var/lib/redis/"]
+VOLUME ["/var/lib/redis"]
 
 # Set the environment variables
 ENV HOME /var/lib/redis
@@ -45,8 +45,7 @@ ENV HOME /var/lib/redis
 # Working directory
 WORKDIR /var/lib/redis
 
-ENTRYPOINT ["/bin/redis-server"]
-CMD ["/etc/redis.conf"]
+ENTRYPOINT ["/usr/bin/redis-server"]
 
 # Expose ports.
 EXPOSE 6379
