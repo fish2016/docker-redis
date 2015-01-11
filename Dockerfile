@@ -31,7 +31,7 @@ RUN yum install redis -y
 RUN yum clean all
 
 # Copy config redis
-ADD etc/ /etc/
+ADD etc/redis.conf /etc/redis.conf
 
 # User
 USER root
@@ -45,7 +45,7 @@ ENV HOME /var/lib/redis
 # Working directory
 WORKDIR /var/lib/redis
 
-ENTRYPOINT ["/usr/bin/redis-server"]
+CMD ["/usr/bin/redis-server", "/etc/redis.conf"]
 
 # Expose ports.
 EXPOSE 6379
