@@ -1,6 +1,8 @@
-# Redis Dockerfile in CentOS 7 image
+# Redis Dockerfile in CentOS 7 image 
 
 This repository contains a Dockerfile to build a Docker Image for Redis in CentOS 7.
+
+[![Build Status](https://travis-ci.org/zokeber/docker-redis.svg?branch=master)](https://travis-ci.org/zokeber/docker-redis)
 
 ## Base Docker Image
 
