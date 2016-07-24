@@ -25,10 +25,10 @@ FROM zokeber/centos
 MAINTAINER Daniel Lopez Monagas <zokeber@gmail.com>
 
 # Install MongoDB
-RUN rpm -vih http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-RUN yum update -y
-RUN yum install redis -y
-RUN yum clean all
+RUN yum install epel-release -y && \
+    yum update -y && \
+    yum install redis -y && \
+    yum clean all
 
 # Copy config redis
 ADD etc/redis.conf /etc/redis.conf
