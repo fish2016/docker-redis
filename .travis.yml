@@ -1,7 +1,13 @@
-sudo: true
+sudo: required
 
-install:
-- curl -sLo - http://j.mp/install-travis-docker | sh -xe
+env:
+  global:
+    - DOCKER_VERSION=1.9.1  # Install Docker version 1.9.1
+
+services:
+  - docker
 
 script:
-- ./run "docker build -t zokeber/redis ."
+  - docker build -t zokeber/redis:latest .
+  - docker run -d -p 6379:6379 --name redis zokeber/redis:latest
+  - docker ps -a
